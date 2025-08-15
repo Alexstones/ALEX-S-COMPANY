@@ -1,0 +1,63 @@
+@reference "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+  body { @apply bg-zinc-950 text-white font-sans overflow-x-hidden; }
+}
+
+@layer components {
+  /* Efecto glassmorphism */
+  .glass { @apply bg-white/5 backdrop-blur-md border border-white/10; }
+
+  /* Animación de fondo */
+  .animated-bg {
+    background: linear-gradient(-45deg, #1e0a29, #0a1e29, #1a0a29, #0e1a29);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    position: absolute; inset: 0; opacity: .8;
+  }
+
+  /* Textura de ruido suave (opcional) */
+  .bg-noise {
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+  }
+
+  /* Gradiente animado reutilizable */
+  .gradient-animated {
+    background: linear-gradient(90deg, #60a5fa, #f472b6, #a78bfa, #84cc16);
+    background-size: 200% auto;
+  }
+  .animate-gradient { animation: gradient-move 3s ease infinite; }
+
+  /* Hover cards */
+  .card-hover-effect { transform: translateY(0); transition: transform .3s; }
+  .card-hover-effect:hover { transform: translateY(-8px); }
+
+  /* Sombras neón */
+  .shadow-neon { box-shadow: 0 0 15px rgba(0,255,255,.4), 0 0 25px rgba(0,255,255,.2); }
+  .shadow-neon-logo { box-shadow: 0 0 10px rgba(129,140,248,.6), 0 0 20px rgba(129,140,248,.4); }
+  .shadow-neon-blue-light { box-shadow: 0 0 8px rgba(96,165,250,.7); }
+  .shadow-neon-green-light { box-shadow: 0 0 8px rgba(132,204,22,.7); }
+  .shadow-neon-pink-light { box-shadow: 0 0 8px rgba(244,114,182,.7); }
+
+  .hover\:shadow-neon-cyan-hover:hover { box-shadow: 0 0 10px rgba(45,212,191,.7), 0 0 20px rgba(45,212,191,.5); }
+  .hover\:shadow-neon-fuchsia-hover:hover { box-shadow: 0 0 10px rgba(232,121,249,.7), 0 0 20px rgba(232,121,249,.5); }
+  .hover\:shadow-neon-emerald-hover:hover { box-shadow: 0 0 10px rgba(52,211,153,.7), 0 0 20px rgba(52,211,153,.5); }
+}
+
+/* Keyframes */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
